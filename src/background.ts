@@ -28,6 +28,14 @@ chrome.action.onClicked.addListener(() => {
     applyIcon(enabled);
 });
 
+// On first install (not on updates), open the options page so the user
+// understands the new behavior and can configure it.
+chrome.runtime.onInstalled.addListener((details) => {
+    if (details.reason === "install") {
+        chrome.runtime.openOptionsPage();
+    }
+});
+
 async function detachTab(tab: chrome.tabs.Tab): Promise<void> {
     try {
         const opts = await getAllOptions();
@@ -52,6 +60,10 @@ async function detachTab(tab: chrome.tabs.Tab): Promise<void> {
 }
 
 function passesTriggers(tab: chrome.tabs.Tab, opts: Options): boolean {
+    const url = tab.pendingUrl ?? tab.url ?? "";
+    if (isInternalPage(url)) {
+        return false;
+    }
     if (opts.excludePinned && tab.pinned) {
         return false;
     }
@@ -61,11 +73,27 @@ function passesTriggers(tab: chrome.tabs.Tab, opts: Options): boolean {
     if (opts.keepExternalAsTab && isExternalLink(tab)) {
         return false;
     }
-    const url = tab.pendingUrl ?? tab.url ?? "";
     if (isExcludedUrl(url, opts.excludeUrls)) {
         return false;
     }
     return true;
+}
+
+/**
+ * True for browser-internal pages we should never split into a window
+ * (settings, history, devtools, our own options page, etc.). The new-tab
+ * page is deliberately excluded — moving it into a window is the whole point.
+ */
+function isInternalPage(url: string): boolean {
+    if (url.startsWith("chrome://")) {
+        return !url.startsWith("chrome://newtab");
+    }
+    return (
+        url.startsWith("chrome-extension://") ||
+        url.startsWith("chrome-untrusted://") ||
+        url.startsWith("devtools://") ||
+        url.startsWith("edge://")
+    );
 }
 
 /**

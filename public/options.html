@@ -49,6 +49,16 @@ body {
 .head h1 { margin: 0; font-size: 1.15em; font-weight: 600; letter-spacing: 0.2px; }
 .body { padding: 0.5em 1.6em 1.6em; }
 
+.welcome {
+    background: #f3f5fb;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9em 1em;
+    margin-top: 1em;
+}
+.welcome-title { font-weight: 600; margin-bottom: 0.2em; }
+.welcome-body { font-size: 0.9em; color: var(--muted); }
+
 .setting {
     padding: 1.25em 0;
     border-bottom: 1px solid var(--line);
@@ -128,6 +138,11 @@ button:hover { background: var(--brand); color: #fff; }
         <h1 data-i18n="optionsTitle"></h1>
       </div>
       <form class="body">
+
+        <div class="welcome">
+          <div class="welcome-title" data-i18n="optionsWelcomeTitle"></div>
+          <div class="welcome-body" data-i18n="optionsWelcomeBody"></div>
+        </div>
 
         <div class="setting">
           <div class="label" data-i18n="optionsNewWindowPosition"></div>
