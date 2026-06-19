@@ -1,5 +1,3 @@
-// Builds the extension into dist/: copies static assets from public/ and
-// bundles the TypeScript entry points with esbuild.
 import * as esbuild from "esbuild";
 import { cpSync, rmSync, mkdirSync } from "node:fs";
 

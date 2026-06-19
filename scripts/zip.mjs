@@ -1,6 +1,3 @@
-// Packages dist/ into a versioned zip for the Chrome Web Store.
-// Uses PowerShell's Compress-Archive (prefers pwsh 7, falls back to Windows
-// PowerShell) so it works on Windows without extra dependencies.
 import { readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 

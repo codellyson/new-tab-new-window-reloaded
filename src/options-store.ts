@@ -1,21 +1,14 @@
-// Typed wrapper around chrome.storage.sync for the extension's settings.
-
 export interface Options {
     extensionEnabled: boolean;
-    /** 0 = cascade, 1 = same as parent, 2 = maximize */
     newWindowsPosition: number;
-    /** 0 = inherit, 1 = custom width/height */
     windowSizeMode: number;
     windowWidth: number;
     windowHeight: number;
     focusNewWindow: boolean;
     triggerLinkOnly: boolean;
-    /** Keep links launched from outside Chrome (no source tab) as tabs. */
     keepExternalAsTab: boolean;
     excludePinned: boolean;
-    /** Only detach once the source window holds at least this many tabs. */
     minTabsThreshold: number;
-    /** Newline-separated substring/wildcard patterns to keep as tabs. */
     excludeUrls: string;
 }
 

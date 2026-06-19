@@ -1,9 +1,6 @@
-// Moves newly created tabs into their own window, subject to the user's
-// configured triggers, position, size and focus preferences.
 import { getAllOptions, getOption, setOption, type Options } from "./options-store";
 
 const POSITION_CASCADE = 0;
-// 1 === same as parent window (handled as the default branch in planWindow).
 const POSITION_MAXIMIZE = 2;
 const SIZE_CUSTOM = 1;
 
@@ -15,7 +12,6 @@ void (async () => {
 })();
 
 chrome.tabs.onCreated.addListener((tab) => {
-    // index 0 is the very first tab of a window; never detach it.
     if (tab.index === 0 || !enabled) {
         return;
     }
@@ -28,8 +24,6 @@ chrome.action.onClicked.addListener(() => {
     applyIcon(enabled);
 });
 
-// On first install (not on updates), open the options page so the user
-// understands the new behavior and can configure it.
 chrome.runtime.onInstalled.addListener((details) => {
     if (details.reason === "install") {
         chrome.runtime.openOptionsPage();
@@ -43,9 +37,6 @@ async function detachTab(tab: chrome.tabs.Tab): Promise<void> {
             return;
         }
         if (opts.minTabsThreshold > 1) {
-            // Keep up to `minTabsThreshold` tabs in the window; only the tab
-            // that would exceed it gets detached. `siblings` includes the
-            // just-created tab, so detach only when the count goes past N.
             const siblings = await chrome.tabs.query({ windowId: tab.windowId });
             if (siblings.length <= opts.minTabsThreshold) {
                 return;
@@ -79,11 +70,6 @@ function passesTriggers(tab: chrome.tabs.Tab, opts: Options): boolean {
     return true;
 }
 
-/**
- * True for browser-internal pages we should never split into a window
- * (settings, history, devtools, our own options page, etc.). The new-tab
- * page is deliberately excluded — moving it into a window is the whole point.
- */
 function isInternalPage(url: string): boolean {
     if (url.startsWith("chrome://")) {
         return !url.startsWith("chrome://newtab");
@@ -96,11 +82,6 @@ function isInternalPage(url: string): boolean {
     );
 }
 
-/**
- * True for a tab launched from outside Chrome: it has no source tab
- * (openerTabId) and is already navigating to an http(s) URL. This excludes
- * blank Ctrl/Cmd+T tabs (which open on the new-tab page, not a web URL).
- */
 function isExternalLink(tab: chrome.tabs.Tab): boolean {
     if (tab.openerTabId != null) {
         return false;
@@ -130,7 +111,6 @@ function planWindow(
         data.height = opts.windowHeight;
     };
 
-    // A maximized window cannot also carry a custom size or position.
     if (opts.newWindowsPosition === POSITION_MAXIMIZE) {
         data.state = "maximized";
         return data;
@@ -145,7 +125,6 @@ function planWindow(
         return data;
     }
 
-    // POSITION_SAME_AS_PARENT: mirror the parent window's top-left corner.
     if (!canPositionRelativeTo(parent.state, platform)) {
         if (customSize) {
             applySize();
@@ -170,17 +149,12 @@ function canPositionRelativeTo(
     if (state === "minimized" || state === "fullscreen") {
         return false;
     }
-    // macOS can position a maximized window; other platforms cannot.
     if (state === "maximized") {
         return platform.os === "mac";
     }
     return true;
 }
 
-/**
- * True when `url` matches any non-empty line of `patterns`. A line is matched
- * as a case-insensitive substring; a line containing "*" is a wildcard.
- */
 function isExcludedUrl(url: string, patterns: string): boolean {
     if (!url || !patterns) {
         return false;

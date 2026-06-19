@@ -1,5 +1,3 @@
-// Wires the options page controls to chrome.storage, persisting each change
-// immediately and showing a brief "Saved" confirmation.
 import { getAllOptions, setOption, type OptionName } from "./options-store";
 import { byId, localizeDocument } from "./i18n";
 
