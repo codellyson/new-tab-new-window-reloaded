@@ -58,11 +58,27 @@ function passesTriggers(tab: chrome.tabs.Tab, opts: Options): boolean {
     if (opts.triggerLinkOnly && tab.openerTabId == null) {
         return false;
     }
+    if (opts.keepExternalAsTab && isExternalLink(tab)) {
+        return false;
+    }
     const url = tab.pendingUrl ?? tab.url ?? "";
     if (isExcludedUrl(url, opts.excludeUrls)) {
         return false;
     }
     return true;
+}
+
+/**
+ * True for a tab launched from outside Chrome: it has no source tab
+ * (openerTabId) and is already navigating to an http(s) URL. This excludes
+ * blank Ctrl/Cmd+T tabs (which open on the new-tab page, not a web URL).
+ */
+function isExternalLink(tab: chrome.tabs.Tab): boolean {
+    if (tab.openerTabId != null) {
+        return false;
+    }
+    const url = tab.pendingUrl ?? tab.url ?? "";
+    return /^https?:\/\//i.test(url);
 }
 
 function planWindow(

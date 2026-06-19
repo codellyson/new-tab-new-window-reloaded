@@ -46,6 +46,7 @@ Flip it on and forget it. Open a link, hit Ctrl/Cmd+T, or click something that s
 • Window size — keep Chrome's default, or set a custom width × height.
 • Focus control — open new windows in front, or quietly in the background.
 • Link-only mode — only act on tabs opened from a link or page, and leave blank Ctrl/Cmd+T tabs alone.
+• External links stay put — links opened from other apps land as a tab in your current window instead of a new one.
 • Skip pinned tabs — never tear your pinned tabs out of their window.
 • Minimum-tabs threshold — only split a tab out once the window already has at least N tabs, so small windows stay intact.
 • URL exclusions — keep chosen sites as tabs using simple substring or wildcard patterns (e.g. *://mail.google.com/*).

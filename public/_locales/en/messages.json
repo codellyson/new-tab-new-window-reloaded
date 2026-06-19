@@ -57,6 +57,9 @@
     "optionsTriggerLinkOnly": {
         "message": "Only act on tabs opened from a link or page"
     },
+    "optionsKeepExternalAsTab": {
+        "message": "Keep links opened from outside Chrome as tabs (don't open them in a new window)"
+    },
     "optionsExcludePinned": {
         "message": "Don't move pinned tabs into a new window"
     },

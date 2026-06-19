@@ -71,6 +71,7 @@ async function init(): Promise<void> {
     bindRadioGroup("windowSizeMode", opts.windowSizeMode);
     bindCheckbox("focusNewWindow", opts.focusNewWindow);
     bindCheckbox("triggerLinkOnly", opts.triggerLinkOnly);
+    bindCheckbox("keepExternalAsTab", opts.keepExternalAsTab);
     bindCheckbox("excludePinned", opts.excludePinned);
     bindNumber("windowWidth", opts.windowWidth);
     bindNumber("windowHeight", opts.windowHeight);

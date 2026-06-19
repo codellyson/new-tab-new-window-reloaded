@@ -10,6 +10,8 @@ export interface Options {
     windowHeight: number;
     focusNewWindow: boolean;
     triggerLinkOnly: boolean;
+    /** Keep links launched from outside Chrome (no source tab) as tabs. */
+    keepExternalAsTab: boolean;
     excludePinned: boolean;
     /** Only detach once the source window holds at least this many tabs. */
     minTabsThreshold: number;
@@ -27,6 +29,7 @@ export const OPTION_DEFAULTS: Options = {
     windowHeight: 768,
     focusNewWindow: true,
     triggerLinkOnly: false,
+    keepExternalAsTab: true,
     excludePinned: true,
     minTabsThreshold: 5,
     excludeUrls: "",
@@ -40,6 +43,7 @@ const COERCE: { [K in OptionName]: (value: unknown) => Options[K] } = {
     windowHeight: Number,
     focusNewWindow: Boolean,
     triggerLinkOnly: Boolean,
+    keepExternalAsTab: Boolean,
     excludePinned: Boolean,
     minTabsThreshold: Number,
     excludeUrls: String,
