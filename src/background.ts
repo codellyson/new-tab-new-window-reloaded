@@ -35,8 +35,11 @@ async function detachTab(tab: chrome.tabs.Tab): Promise<void> {
             return;
         }
         if (opts.minTabsThreshold > 1) {
+            // Keep up to `minTabsThreshold` tabs in the window; only the tab
+            // that would exceed it gets detached. `siblings` includes the
+            // just-created tab, so detach only when the count goes past N.
             const siblings = await chrome.tabs.query({ windowId: tab.windowId });
-            if (siblings.length < opts.minTabsThreshold) {
+            if (siblings.length <= opts.minTabsThreshold) {
                 return;
             }
         }

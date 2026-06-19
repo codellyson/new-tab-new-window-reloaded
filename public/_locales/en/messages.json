@@ -64,7 +64,7 @@
         "message": "Minimum tabs"
     },
     "optionsMinTabsHint": {
-        "message": "Only split a tab into a new window once the current window has at least this many tabs. 0 or 1 means always."
+        "message": "Keep up to this many tabs in a window; tabs beyond that open in their own window. 0 or 1 means every new tab gets its own window."
     },
     "optionsExcludeUrls": {
         "message": "Excluded URLs"
