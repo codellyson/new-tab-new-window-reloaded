@@ -37,6 +37,7 @@ async function detachTab(tab: chrome.tabs.Tab): Promise<void> {
             return;
         }
         if (opts.minTabsThreshold > 1) {
+            // siblings includes the just-created tab, so compare with <= not <.
             const siblings = await chrome.tabs.query({ windowId: tab.windowId });
             if (siblings.length <= opts.minTabsThreshold) {
                 return;
@@ -72,6 +73,7 @@ function passesTriggers(tab: chrome.tabs.Tab, opts: Options): boolean {
 
 function isInternalPage(url: string): boolean {
     if (url.startsWith("chrome://")) {
+        // Exclude the new-tab page: detaching it is the extension's whole point.
         return !url.startsWith("chrome://newtab");
     }
     return (
