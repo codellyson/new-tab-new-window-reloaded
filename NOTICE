@@ -1,0 +1,14 @@
+New Tab, New Window Reloaded
+============================
+
+This is an independent TypeScript reimplementation. The underlying idea —
+opening every new tab in its own window via the Chrome extension APIs —
+was popularized by "New Tab, New Window" by Ozawa Masayuki
+<ozawa@coroq.com>, which is gratefully acknowledged here.
+
+The source code, icon artwork, configuration features, and build tooling
+in this project are original work, copyright (c) 2026 codellyson.
+
+This acknowledgement is provided as a courtesy credit to the original
+concept; it is not a claim that any code from the original project is
+included here.

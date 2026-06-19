@@ -1,0 +1,35 @@
+{
+    "extName": {
+        "message": "Ny Fane, Nytt Vindu Reloaded"
+    },
+    "extDescription": {
+        "message": "Åpner alle nye faner i et nytt vindu."
+    },
+    "extTranslator": {
+        "message": "Norsk (bokmål) oversettelse av John Inge Røst"
+    },
+    "actionTitleDisabled": {
+        "message": "Ny Fane, Nytt Vindu Reloaded (Deaktivert)"
+    },
+    "optionsTitle": {
+        "message": "Ny fane, Nytt Vindu Alternativer"
+    },
+    "optionsNewWindowPosition": {
+        "message": "Plassering av nytt vindu"
+    },
+    "optionsNewWindowPositionDefaultLabel": {
+        "message": "Standard"
+    },
+    "optionsNewWindowPositionParentLabel": {
+        "message": "Samme som orginalvinduet"
+    },
+    "optionsTestButton": {
+        "message": "Test"
+    },
+    "optionsTestMessage": {
+        "message": "En ny fane er åpnet."
+    },
+    "optionsTestCloseButton": {
+        "message": "Lukk"
+    }
+}

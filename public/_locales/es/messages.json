@@ -1,0 +1,37 @@
+{
+    "extName": {
+        "message": "New Tab, New Window Reloaded",
+        "description": "Extension name."
+    },
+    "extDescription": {
+        "message": "Open every new tab in a new window.",
+        "description": "Extension description."
+    },
+    "extTranslator": {
+        "message": ""
+    },
+    "actionTitleDisabled": {
+        "message": "New Tab, New Window Reloaded (Desactivado)"
+    },
+    "optionsTitle": {
+        "message": "New Tab, New Window Options"
+    },
+    "optionsNewWindowPosition": {
+        "message": "Position of new window"
+    },
+    "optionsNewWindowPositionDefaultLabel": {
+        "message": "Default (cascade)"
+    },
+    "optionsNewWindowPositionParentLabel": {
+        "message": "Same as the parent window"
+    },
+    "optionsTestButton": {
+        "message": "Test"
+    },
+    "optionsTestMessage": {
+        "message": "New tab opened."
+    },
+    "optionsTestCloseButton": {
+        "message": "Close"
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "extName": {
+        "message": "New Tab, New Window Reloaded",
+        "description": "Extension name."
+    },
+    "extDescription": {
+        "message": "Open every new tab in a new window.",
+        "description": "Extension description."
+    },
+    "extTranslator": {
+        "message": ""
+    },
+    "actionTitle": {
+        "message": "New Tab, New Window Reloaded",
+        "description": "Tooltip message for action icon"
+    },
+    "actionTitleDisabled": {
+        "message": "New Tab, New Window Reloaded (Disabled)",
+        "description": "Tooltip message for action icon when disabled"
+    },
+    "optionsTitle": {
+        "message": "New Tab, New Window Options"
+    },
+    "optionsNewWindowPosition": {
+        "message": "Position of new window"
+    },
+    "optionsNewWindowPositionDefaultLabel": {
+        "message": "Default (cascade)"
+    },
+    "optionsNewWindowPositionParentLabel": {
+        "message": "Same as the parent window"
+    },
+    "optionsNewWindowPositionMaximizeLabel": {
+        "message": "Maximize"
+    },
+    "optionsWindowSize": {
+        "message": "Size of new window"
+    },
+    "optionsWindowSizeInheritLabel": {
+        "message": "Default (let Chrome decide)"
+    },
+    "optionsWindowSizeCustomLabel": {
+        "message": "Custom size"
+    },
+    "optionsWindowSizePixels": {
+        "message": "px"
+    },
+    "optionsWindowSizeHint": {
+        "message": "Custom size is ignored when the position is set to Maximize."
+    },
+    "optionsBehavior": {
+        "message": "Behavior"
+    },
+    "optionsFocusNewWindow": {
+        "message": "Focus the new window when it opens"
+    },
+    "optionsTriggerLinkOnly": {
+        "message": "Only act on tabs opened from a link or page"
+    },
+    "optionsExcludePinned": {
+        "message": "Don't move pinned tabs into a new window"
+    },
+    "optionsMinTabs": {
+        "message": "Minimum tabs"
+    },
+    "optionsMinTabsHint": {
+        "message": "Only split a tab into a new window once the current window has at least this many tabs. 0 or 1 means always."
+    },
+    "optionsExcludeUrls": {
+        "message": "Excluded URLs"
+    },
+    "optionsExcludeUrlsHint": {
+        "message": "One pattern per line. A line matches as a case-insensitive substring of the URL; use * as a wildcard (e.g. *://mail.google.com/*). Matching tabs stay as tabs."
+    },
+    "optionsTestButton": {
+        "message": "Test"
+    },
+    "optionsSaved": {
+        "message": "Saved"
+    },
+    "optionsTestTitle": {
+        "message": "New Tab, New Window Reloaded — Test"
+    },
+    "optionsTestMessage": {
+        "message": "New tab opened."
+    },
+    "optionsTestCloseButton": {
+        "message": "Close"
+    }
+}
